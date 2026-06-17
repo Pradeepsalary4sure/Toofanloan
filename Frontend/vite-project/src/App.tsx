@@ -488,7 +488,7 @@ import { useEffect, useState } from "react";
 
 const API_BASE_URL = import.meta.env.DEV
   ? "http://localhost:3000"
-  : "https://leaderboad-backend.onrender.com";
+  : "https://toofanloan.onrender.com";
   
 const MIN_DISBURSE_DATE = "2025-10-25";
 const MAX_DISBURSE_DATE = "2030-12-31";
@@ -512,13 +512,19 @@ function App() {
   const [repeat, setRepeat] = useState<Data[]>([]);
   const [month, setMonth] = useState(() => {
     // Get current month on load
-    const now = new Date();
-    const year = now.getFullYear();
-    const monthNum = String(now.getMonth() + 1).padStart(2, '0');
-    const shortYear = String(year).slice(-2);
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    return `${months[now.getMonth()]}'${shortYear}`;
-  });
+  const [month, setMonth] = useState(() => {
+  const now = new Date();
+  const year = now.getFullYear();
+  const shortYear = String(year).slice(-2);
+
+  const months = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+
+  return `${months[now.getMonth()]}'${shortYear}`;
+});
+
   const [searchTerm, setSearchTerm] = useState("");
   const [viewMode, setViewMode] = useState("All");
   const [dateFrom, setDateFrom] = useState("");
