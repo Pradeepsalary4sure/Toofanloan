@@ -514,7 +514,7 @@ function App() {
     // Get current month on load
     const now = new Date();
     const year = now.getFullYear();
-    const monthNum = String(now.getMonth() + 1).padStart(2, '0');
+    let monthNum = String(now.getMonth() + 1).padStart(2, '0');
     const shortYear = String(year).slice(-2);
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     return `${months[now.getMonth()]}'${shortYear}`;
