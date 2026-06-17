@@ -512,19 +512,16 @@ function App() {
   const [repeat, setRepeat] = useState<Data[]>([]);
   const [month, setMonth] = useState(() => {
     // Get current month on load
-  const [month, setMonth] = useState(() => {
-  const now = new Date();
-  const year = now.getFullYear();
-  const shortYear = String(year).slice(-2);
-
-  const months = [
+    const now = new Date();
+    const year = now.getFullYear();
+    //const monthNum = String(now.getMonth() + 1).padStart(2, '0');
+    const shortYear = String(year).slice(-2);
+    const months = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
   ];
-
-  return `${months[now.getMonth()]}'${shortYear}`;
-});
-
+    return `${months[now.getMonth()]}'${shortYear}`;
+  });
   const [searchTerm, setSearchTerm] = useState("");
   const [viewMode, setViewMode] = useState("All");
   const [dateFrom, setDateFrom] = useState("");
