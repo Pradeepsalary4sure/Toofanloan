@@ -514,10 +514,40 @@ function App() {
     // Get current month on load
     const now = new Date();
     const year = now.getFullYear();
-    let monthNum = String(now.getMonth() + 1).padStart(2, '0');
+    // let monthNum = String(now.getMonth() + 1).padStart(2, '0');
+    // const shortYear = String(year).slice(-2);
+    // const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    // return `${months[now.getMonth()]}'${shortYear}`;
+    const [month, setMonth] = useState(() => {
+    const now = new Date();
+    const year = now.getFullYear();
     const shortYear = String(year).slice(-2);
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    return `${months[now.getMonth()]}'${shortYear}`;
+
+    const months = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+
+  return `${months[now.getMonth()]}'${shortYear}`;
+});
+
+Ye line hata do:
+
+let monthNum = String(now.getMonth() + 1).padStart(2, '0');
+
+Uske baad terminal me:
+
+git add .
+git commit -m "Fix month build error"
+git push origin main
+
+Phir Vercel me Redeploy kar do.
+
+Ye error 100% solve ho jayega.
+
+Agar phir bhi build fail ho, to naya Vercel log bhej dena.
+  
+    
   });
   const [searchTerm, setSearchTerm] = useState("");
   const [viewMode, setViewMode] = useState("All");
