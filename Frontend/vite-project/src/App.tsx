@@ -533,7 +533,7 @@ function App() {
 
 Ye line hata do:
 
-let monthNum = String(now.getMonth() + 1).padStart(2, '0');
+// let monthNum = String(now.getMonth() + 1).padStart(2, '0');
 
 Uske baad terminal me:
 
