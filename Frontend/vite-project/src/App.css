@@ -775,6 +775,7 @@ thead {
     135deg,
     #001f5b,
     #004aad
+    position: sticky;
   );
 }
 
