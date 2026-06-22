@@ -67,6 +67,80 @@ p {
 
 .filter-box {
   margin-bottom: 32px;
+  transition: padding 0.25s ease, min-height 0.25s ease;
+}
+
+.filter-box.collapsed {
+  margin-bottom: 18px;
+  width: 48px;
+}
+
+.filter-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.filter-heading h3 {
+  margin: 0;
+}
+
+.filter-toggle {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #1f2937;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.filter-toggle:hover {
+  transform: translateY(-1px);
+  background: rgba(30, 167, 255, 0.1);
+}
+
+.filter-toggle-icon {
+  width: 16px;
+  height: 18px;
+  display: block;
+  border: 3px solid #1f2937;
+  border-radius: 3px;
+  position: relative;
+}
+
+.filter-toggle-icon::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 5px;
+  width: 3px;
+  border-radius: 2px;
+  background: #1f2937;
+}
+
+.filter-content {
+  animation: filterExpand 0.24s ease;
+}
+
+@keyframes filterExpand {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .app-header {
@@ -249,6 +323,14 @@ p {
   flex-direction: column;
   gap: 24px;
   align-self: stretch;
+  transition: width 0.25s ease, min-width 0.25s ease, max-width 0.25s ease;
+}
+
+.side-panel.collapsed {
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  align-self: flex-start;
 }
 
 .main-panel {
@@ -266,6 +348,10 @@ p {
   gap: 26px;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.split-layout.filters-collapsed {
+  gap: 8px;
 }
 
 .date-input {
@@ -326,6 +412,19 @@ p {
   margin-bottom: 16px;
   font-size: 22px;
   color: #1ea7ff;
+}
+
+.filter-box .filter-heading h3 {
+  margin: 0;
+}
+
+.filter-box.collapsed .filter-heading {
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.filter-box.collapsed .filter-heading h3 {
+  display: none;
 }
 
 .filter-box label {
@@ -1057,18 +1156,5 @@ td:nth-child(4) {
 
   .amount-item .value {
     font-size: 14px;
-  }
-
-  .overall-summary {
-    padding: 20px;
-  }
-
-  .overall-summary h3 {
-    font-size: 22px;
-  }
-
-  .overall-value,
-  .overall-percent {
-    font-size: 20px;
   }
 }

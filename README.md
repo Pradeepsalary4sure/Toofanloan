@@ -1,2 +1,3 @@
-# Toofanloan
-Toofan loan dashboard
+# Toofan Loan Dashboard
+
+Toofan loan leaderboard dashboard.
